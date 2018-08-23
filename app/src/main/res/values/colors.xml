@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#ffffff</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="text_un_sel">#666666</color>
+    <color name="tab_sel">#ff6200</color>
+    <color name="live_recycler_bg">#f2f2f2</color>
+    <color name="page_third_bg">#D7D7D7</color>
+
+</resources>

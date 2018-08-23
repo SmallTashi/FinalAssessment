@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">FinalExam</string>
+    <string name="live">直播</string>
+    <string name="my_book">我的预约</string>
+    <string name="live_detail_one">ING现场 | </string>
+    <string name="paike">爆料赢万元奖金</string>
+    <string name="paike_right">马上爆料</string>
+    <string name="paike_left">详细规则</string>
+    <string name="page_third_reward">奖金榜</string>
+    <string name="page_third_mine">我的爆料</string>
+    <string name="pai">现在开拍</string>
+    <string name="page_third_select">精选爆料</string>
+</resources>
