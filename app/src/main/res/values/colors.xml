@@ -9,5 +9,6 @@
     <color name="tab_sel">#ff6200</color>
     <color name="live_recycler_bg">#f2f2f2</color>
     <color name="page_third_bg">#D7D7D7</color>
+    <color name="comment_bg">#F2F2F2</color>
 
 </resources>

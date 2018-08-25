@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+
+    android:background="@color/white">
+
+    <cn.jzvd.JZVideoPlayerStandard
+        android:id="@+id/three_item_video_player"
+        android:layout_width="0dp"
+        android:layout_height="230dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toTopOf="@id/three_item_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </cn.jzvd.JZVideoPlayerStandard>
+
+    <TextView
+        android:id="@+id/three_item_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/three_item_video_player" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/three_item_title"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/item_detail_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg"
+            android:padding="2dp"
+            android:text="@string/detail"
+            android:textColor="@color/tab_sel"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/three_item_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/item_detail_left"
+            android:text="@string/live_detail_one"
+            android:textSize="12sp" />
+
+        <TextView
+            android:visibility="visible"
+            android:id="@+id/three_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="123dp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/three_item_detail"
+            android:gravity="end"
+            android:text="@string/time_long"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

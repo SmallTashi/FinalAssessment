@@ -3,46 +3,69 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+
+    android:background="@color/white">
 
     <ImageView
-        android:id="@+id/item_top_image"
+        android:id="@+id/two_bg"
         android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_height="150dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/item_name"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/tab_sel" />
+        app:srcCompat="@drawable/iv_login_normal_background"
+        tools:ignore="ContentDescription" />
 
-    <TextView
-        android:id="@+id/item_name"
+    <Button
+        android:id="@+id/now"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/my_page_switch_backgroubd"
+        android:text="@string/pai"
+        android:textColor="@color/white"
+
+        app:layout_constraintBottom_toBottomOf="@id/two_bg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_top_image" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/item_detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="10dp"
-        android:text="TextView"
-        android:textSize="12sp"
+    <RelativeLayout
+        android:id="@+id/boaliao"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+
+        android:elevation="-1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_name" />
+        app:layout_constraintTop_toBottomOf="@id/two_bg"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:src="@drawable/line"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/page_third_select"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>

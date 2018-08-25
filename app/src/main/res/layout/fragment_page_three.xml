@@ -3,13 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:tag="pageThree"
+    android:background="@color/white"
     android:layout_height="match_parent">
 
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/page_second_bar"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="15dp"
         android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@id/fragment_viewpager"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +40,6 @@
                 android:text="@string/my_book"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-
             </TextView>
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
@@ -45,7 +49,9 @@
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:src="@drawable/line"
-        app:layout_constraintBottom_toTopOf="@+id/page_second_recycler"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintBottom_toTopOf="@id/page_three_recycler"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,12 +60,14 @@
         tools:ignore="ContentDescription" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/page_second_recycler"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:id="@+id/page_three_recycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:listitem="@layout/item_live" />
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        tools:listitem="@layout/item_page_three" />
 </android.support.constraint.ConstraintLayout>

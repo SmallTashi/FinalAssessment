@@ -16,8 +16,8 @@ import butterknife.ButterKnife;
 public class MainActivity extends BaseActivity implements MainTabAdapter.onSelect {
     @BindView(R.id.testRecorder)
     Button testRecorder;
-    private TabLayout bottom;
     private ImageButton paike;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,18 +25,25 @@ public class MainActivity extends BaseActivity implements MainTabAdapter.onSelec
         setTheme(R.style.AppTheme);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        bottom = findViewById(R.id.tab_bottom);
+        TabLayout bottom = findViewById(R.id.tab_bottom);
         paike = findViewById(R.id.paike_button);
         paike.setVisibility(View.GONE);
-        testRecorder.setVisibility(View.VISIBLE);
+        testRecorder.setVisibility(View.GONE);
         testRecorder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,TestRecorderActivity.class);
+                Intent intent = new Intent(MainActivity.this, TestRecorderActivity.class);
                 startActivity(intent);
             }
         });
+
         new MainTabAdapter(this, this, getSupportFragmentManager(), bottom);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
     }
 
     @Override

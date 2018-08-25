@@ -4,47 +4,40 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.mredrock.tashi.finalexam.data.PageList;
 import com.mredrock.tashi.finalexam.fragment.PageFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PagerAdapter extends FragmentPagerAdapter {
-    private static List<String> name = new ArrayList<>();
+public class PagerAdapter extends FragmentStatePagerAdapter {
+    private static List<PageList.CategoryListBean> name ;
 
     private static List<PageFragment> fragments = new ArrayList<>();
 
     private static PagerAdapter instance ;
 
-    public static PagerAdapter getInstance(FragmentManager fragmentManager){
+    public static PagerAdapter getInstance(FragmentManager fragmentManager,List<PageList.CategoryListBean> n){
+        name = n;
         if(instance==null){
             instance = new PagerAdapter(fragmentManager);
         }
         return instance;
     }
 
-    public PagerAdapter(FragmentManager fm) {
+    private PagerAdapter(FragmentManager fm) {
         super(fm);
-        name.add("万象");
-        name.add("精选");
-        name.add("生活");
-        name.add("新知");
-        name.add("社会");
-        name.add("科技");
-        name.add("娱乐");
-        name.add("美食");
-        name.add("音乐");
-        name.add("世界");
         for (int i = 0; i < name.size(); i++) {
-            fragments.add(new PageFragment());
+            fragments.add(PageFragment.getInstance(name.get(i).getCategoryId()));
         }
     }
 
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return name.get(position);
+        return name.get(position).getName();
     }
 
     @Override

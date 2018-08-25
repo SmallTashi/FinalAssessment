@@ -29,7 +29,6 @@ public class TestRecorderActivity extends AppCompatActivity implements RecordStr
     Button cancel;
     @BindView(R.id.reLord)
     Button reLord;
-    private int flag;
     public boolean isSuccess = false;
     private TSAudioRecorder recorder;
 
@@ -44,7 +43,7 @@ public class TestRecorderActivity extends AppCompatActivity implements RecordStr
             if (file.mkdir()) {
                 addToast("CreateFolder", false);
             } else {
-
+                addToast("FailedCreate",false);
             }
         } else {
             file.delete();
@@ -56,7 +55,16 @@ public class TestRecorderActivity extends AppCompatActivity implements RecordStr
 
     @Override
     public void currentStatus(int status) {
-        this.flag = status;
+        int flag = status;
+        switch (flag){
+
+
+        }
+    }
+
+    @Override
+    public String setName() {
+        return "Test";
     }
 
     @Override

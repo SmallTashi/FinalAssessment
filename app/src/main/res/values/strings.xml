@@ -10,4 +10,8 @@
     <string name="page_third_mine">我的爆料</string>
     <string name="pai">现在开拍</string>
     <string name="page_third_select">精选爆料</string>
+    <string name="time_long">时长</string>
+    <string name="detail">图文直播</string>
+    <string name="divided">|</string>
+    <string name="edit_comment">发表伟大言论...</string>
 </resources>

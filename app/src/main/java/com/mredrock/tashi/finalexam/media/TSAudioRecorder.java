@@ -10,12 +10,9 @@ import com.mredrock.tashi.finalexam.tools.WaveHeader;
 import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -42,8 +39,6 @@ public class TSAudioRecorder implements AudioRecord.OnRecordPositionUpdateListen
     private AudioRecord audioRecord;
 
     private int bufferSizeInBytes;
-
-
 
     private ExecutorService executorService;
 
@@ -147,7 +142,6 @@ public class TSAudioRecorder implements AudioRecord.OnRecordPositionUpdateListen
             audioRecord = null;
             status = Status.STATUS_STOP;
             out = null;
-
         }
     }
 
@@ -196,25 +190,5 @@ public class TSAudioRecorder implements AudioRecord.OnRecordPositionUpdateListen
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private void readFile() {
-        Log.d("AudioRecorder", "===readFile===");
-        byte[] b = new byte[1024 * 2];
-        try {
-            FileInputStream in = new FileInputStream(filename);
-            int len = 0;
-            int temp;
-            while ((temp = in.read()) != -1) {
-                b[len] = (byte) temp;
-                len++;
-            }
-            in.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Log.d("AudioRecorder", Arrays.toString(b));
     }
 }
