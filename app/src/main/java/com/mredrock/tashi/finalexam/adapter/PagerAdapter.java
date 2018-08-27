@@ -12,19 +12,16 @@ import com.mredrock.tashi.finalexam.fragment.PageFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PagerAdapter extends FragmentStatePagerAdapter {
+public class PagerAdapter extends FragmentPagerAdapter {
     private static List<PageList.CategoryListBean> name ;
 
     private static List<PageFragment> fragments = new ArrayList<>();
 
-    private static PagerAdapter instance ;
 
     public static PagerAdapter getInstance(FragmentManager fragmentManager,List<PageList.CategoryListBean> n){
         name = n;
-        if(instance==null){
-            instance = new PagerAdapter(fragmentManager);
-        }
-        return instance;
+        return  new PagerAdapter(fragmentManager);
+
     }
 
     private PagerAdapter(FragmentManager fm) {

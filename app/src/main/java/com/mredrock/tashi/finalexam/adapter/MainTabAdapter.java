@@ -50,7 +50,6 @@ public class MainTabAdapter implements TabLayout.OnTabSelectedListener {
         ImageView image = v.findViewById(R.id.tab_image);
         TextView text = v.findViewById(R.id.tab_text);
         images.add(image.getResources().getDrawable(R.drawable.tab_top_sel_unsel));
-
         images.add(image.getResources().getDrawable(R.drawable.tab_paike_sel_unsel));
         images.add(image.getResources().getDrawable(R.drawable.tab_live_sel_unsel));
         text.setText(name.get(pos));
@@ -75,7 +74,6 @@ public class MainTabAdapter implements TabLayout.OnTabSelectedListener {
     public void onTabSelected(TabLayout.Tab tab) {
         int pos = tab.getPosition();
         Log.d("tab", String.valueOf(pos));
-
         tab.getCustomView().findViewById(R.id.tab_image).setSelected(true);
         tab.getCustomView().findViewById(R.id.tab_text).setSelected(true);
         if(pos==1){
@@ -94,7 +92,6 @@ public class MainTabAdapter implements TabLayout.OnTabSelectedListener {
 
     @Override
     public void onTabReselected(TabLayout.Tab tab) {
-
     }
 
     public interface onSelect {

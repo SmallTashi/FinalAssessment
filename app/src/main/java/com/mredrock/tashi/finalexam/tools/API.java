@@ -84,4 +84,14 @@ public interface API {
             "X-User-ID: "})
     Call<DetailData> getDetail(@Query("contId")String s);        //从头条 json 中 contId 字段获取到的值
 
+    @GET("content.jsp")
+    @Headers({"X-Channel-Code:official","X-Client-Agent:Xiaomi",
+            "X-Client-Hash:2f3d6ffkda95dlz2fhju8d3s6dfges3t",
+            "X-Client-ID:123456789123456",
+            "X-Client-Version:2.3.2",
+            "X-Long-Token: ",
+            "X-Platform-Type:0","X-Platform-Version:5.0",
+            "X-User-ID: "})
+    Call<DetailData> getURL(@Query("contId")String s);
+
 }

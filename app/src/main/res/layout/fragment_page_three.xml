@@ -3,44 +3,46 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:tag="pageThree"
+    android:layout_height="match_parent"
     android:background="@color/white"
-    android:layout_height="match_parent">
+    android:tag="pageThree">
 
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/page_second_bar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="13dp"
         android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@id/fragment_viewpager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/live"
-                android:layout_marginTop="15dp"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:text="@string/live"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
+
             <TextView
-                android:layout_marginTop="15dp"
-                android:textSize="15sp"
-                android:layout_marginEnd="15dp"
-                android:layout_alignParentEnd="true"
-                android:text="@string/my_book"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </TextView>
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/my_book"
+                android:textSize="15sp"></TextView>
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
@@ -49,9 +51,7 @@
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:src="@drawable/line"
-        android:layout_marginEnd="15dp"
-        android:layout_marginStart="15dp"
-        app:layout_constraintBottom_toTopOf="@id/page_three_recycler"
+        app:layout_constraintBottom_toTopOf="@id/page_three_refresh"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,15 +59,22 @@
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="ContentDescription" />
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:id="@+id/page_three_recycler"
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/page_three_refresh"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView"
-        tools:listitem="@layout/item_page_three" />
+        app:layout_constraintTop_toBottomOf="@id/imageView">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/page_three_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_page_three" />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
 </android.support.constraint.ConstraintLayout>

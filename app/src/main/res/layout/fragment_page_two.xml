@@ -3,29 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:tag="pageTwo"
+    android:layout_height="match_parent"
     android:background="@color/white"
-    android:layout_height="match_parent">
+    android:tag="pageTwo">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/page_third_bar"
         android:layout_width="0dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginTop="15dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="13dp"
         android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/page_two_recycler"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -57,16 +56,36 @@
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:id="@+id/page_two_recycler"
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:src="@drawable/line"
+        app:layout_constraintBottom_toTopOf="@id/page_two_refresh"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/page_third_bar"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="ContentDescription" />
+
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/page_two_refresh"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/page_third_bar"
-        tools:listitem="@layout/item_page_three" />
+        app:layout_constraintTop_toBottomOf="@id/page_third_bar">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/page_two_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_page_three" />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
 
 </android.support.constraint.ConstraintLayout>

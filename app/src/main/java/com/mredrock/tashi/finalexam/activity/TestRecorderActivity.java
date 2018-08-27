@@ -38,7 +38,13 @@ public class TestRecorderActivity extends AppCompatActivity implements RecordStr
         setContentView(R.layout.activity_test_recorder);
         ButterKnife.bind(this);
         String s = Environment.getExternalStorageDirectory().getAbsolutePath();
-        File file = new File(s + File.separator + "TSRecordTest");
+        File BigFolder = new File(s + File.separator + "LiVideo");
+        if(BigFolder.exists()){
+            BigFolder.delete();
+        }
+        BigFolder.mkdir();
+        s=BigFolder.getPath();
+        File file = new File(s + File.separator + "Personal");
         if (!file.exists()) {
             if (file.mkdir()) {
                 addToast("CreateFolder", false);
@@ -48,7 +54,6 @@ public class TestRecorderActivity extends AppCompatActivity implements RecordStr
         } else {
             file.delete();
         }
-
         recorder = TSAudioRecorder.getInstance(file);
     }
 

@@ -7,7 +7,7 @@
 
     android:background="@color/white">
 
-    <cn.jzvd.JZVideoPlayerStandard
+    <ImageView
         android:id="@+id/three_item_video_player"
         android:layout_width="0dp"
         android:layout_height="230dp"
@@ -15,9 +15,7 @@
         app:layout_constraintBottom_toTopOf="@id/three_item_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </cn.jzvd.JZVideoPlayerStandard>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/three_item_title"

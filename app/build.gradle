@@ -41,9 +41,8 @@ dependencies {
     implementation 'com.android.support:gridlayout-v7:27.1.1'
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
     implementation 'com.android.support:appcompat-v7:27.1.1'
-
+    implementation 'cn.jzvd:jiaozivideoplayer:6.2.12'
 }
 repositories {
     mavenCentral()
 }
-

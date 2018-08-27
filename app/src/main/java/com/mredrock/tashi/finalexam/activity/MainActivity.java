@@ -1,6 +1,7 @@
 package com.mredrock.tashi.finalexam.activity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.view.View;
@@ -12,8 +13,10 @@ import com.mredrock.tashi.finalexam.adapter.MainTabAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.jzvd.JZVideoPlayer;
 
 public class MainActivity extends BaseActivity implements MainTabAdapter.onSelect {
+    public static final int VIDEO_CAPTURE = 0;
     @BindView(R.id.testRecorder)
     Button testRecorder;
     private ImageButton paike;
@@ -44,6 +47,26 @@ public class MainActivity extends BaseActivity implements MainTabAdapter.onSelec
     protected void onStart() {
         super.onStart();
 
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode==RESULT_OK && requestCode==VIDEO_CAPTURE){
+            Uri videoUri=data.getData();
+        }
+    }
+    @Override
+    public void onBackPressed() {
+        if (JZVideoPlayer.backPress()) {
+            return;
+        }
+        super.onBackPressed();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JZVideoPlayer.releaseAllVideos();
     }
 
     @Override

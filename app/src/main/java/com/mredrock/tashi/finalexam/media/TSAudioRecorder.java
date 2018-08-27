@@ -3,6 +3,7 @@ package com.mredrock.tashi.finalexam.media;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
+import android.text.format.DateFormat;
 import android.util.Log;
 
 import com.mredrock.tashi.finalexam.tools.WaveHeader;
@@ -87,8 +88,10 @@ public class TSAudioRecorder implements AudioRecord.OnRecordPositionUpdateListen
         this.Path = fileName;
         status = Status.STATUS_READY;
     }
+
     public void startRecord() {
-        createAudio("TenthTime");
+        String na = String.valueOf(DateFormat.format("yyyy-MM-dd HH:mm:ss",System.currentTimeMillis()));
+        createAudio(na);
         String path = Folder.getPath();
         filename = new File(path + File.separator + Path+".pcm");
         try {
@@ -164,7 +167,6 @@ public class TSAudioRecorder implements AudioRecord.OnRecordPositionUpdateListen
     }
 
     private void keepData(int size) {
-
         byte[] data = new byte[bufferSizeInBytes];
         int readSize;
         status = Status.STATUS_START;
@@ -185,7 +187,6 @@ public class TSAudioRecorder implements AudioRecord.OnRecordPositionUpdateListen
             if(out!=null){
                 out.close();
                 Log.d("AudioRecorder", "===writerClosed===");
-
             }
         } catch (IOException e) {
             e.printStackTrace();

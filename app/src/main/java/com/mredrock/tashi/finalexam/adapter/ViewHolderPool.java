@@ -1,5 +1,7 @@
 package com.mredrock.tashi.finalexam.adapter;
 
+import android.content.Intent;
+import android.provider.MediaStore;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +14,7 @@ import cn.jzvd.JZVideoPlayerStandard;
 
 class ViewHolderPool {
     static class PageOneViewHolder extends RecyclerView.ViewHolder {
-        JZVideoPlayerStandard one_Video_left;
+        ImageView one_Video_left;
         TextView oneTitle_left;
         TextView oneTag_left;
         TextView oneDuration_left;
@@ -28,13 +30,14 @@ class ViewHolderPool {
     }
 
     static class PageTwoViewHolder extends RecyclerView.ViewHolder {
-        JZVideoPlayerStandard twoVideo;
+        ImageView twoVideo;
         TextView twoTitle;
         TextView twoTime;
         TextView twoDescription;
         int pos;
         TextView textView;
         ImageView imageView;
+        Button button;
 
         PageTwoViewHolder(View itemView,int pos) {
             super(itemView);
@@ -45,17 +48,17 @@ class ViewHolderPool {
                 twoDescription = itemView.findViewById(R.id.three_item_detail);
                 twoTime = itemView.findViewById(R.id.three_duration);
             }else {
+                button = itemView.findViewById(R.id.now);
                 textView = itemView.findViewById(R.id.select);
                 imageView = itemView.findViewById(R.id.two_bg);
             }
-
         }
 
     }
 
 
     static class PageThreeViewHolder extends RecyclerView.ViewHolder {
-        JZVideoPlayerStandard threeVideo;
+        ImageView threeVideo;
         TextView threeTitle;
         TextView threeDetail;
 
@@ -70,18 +73,16 @@ class ViewHolderPool {
 
     static class CommentItemViewHolder extends RecyclerView.ViewHolder{
         ImageView head_left;
-        ImageView head_right;
+        TextView time;
         TextView chat_left;
-        TextView chat_right;
+        TextView comment;
 
-        public CommentItemViewHolder(View itemView) {
+        CommentItemViewHolder(View itemView) {
             super(itemView);
-            head_left = itemView.findViewById(R.id.comment_head_left);
-            head_right = itemView.findViewById(R.id.comment_head_right);
-            head_right.setVisibility(View.INVISIBLE);
-            chat_left = itemView.findViewById(R.id.comment_chat_left);
-            chat_right =itemView.findViewById(R.id.comment_chat_right);
-            chat_right.setVisibility(View.INVISIBLE);
+            head_left = itemView.findViewById(R.id.comment_head);
+            chat_left = itemView.findViewById(R.id.comment_idName);
+            comment = itemView.findViewById(R.id.comment_comment);
+            time = itemView.findViewById(R.id.comment_pub);
         }
     }
 }

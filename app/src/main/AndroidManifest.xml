@@ -28,10 +28,11 @@
         </activity>
         <activity android:name=".activity.BaseActivity" />
         <activity android:name=".activity.TestRecorderActivity" />
-        <activity android:name=".activity.CommentActivity"
+        <activity
+            android:name=".activity.CommentActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait" />
+        <activity android:name=".activity.CameroTestActivity"/>
     </application>
 
 </manifest>
