@@ -21,7 +21,6 @@ public class PageThreeModel implements PageThreeContract.getData {
 
     @Override
     public void LoadMore() {
-
         Call<HotNewsData> bean = api.getHotNews();
         bean.enqueue(new Callback<HotNewsData>() {
             @Override
@@ -34,7 +33,6 @@ public class PageThreeModel implements PageThreeContract.getData {
             public void onFailure(Call<HotNewsData> call, Throwable t) {
                 Log.d("Model", "===========Failed get HotNewData=============");
                 callback.onFailed(t.toString());
-
             }
         });
 

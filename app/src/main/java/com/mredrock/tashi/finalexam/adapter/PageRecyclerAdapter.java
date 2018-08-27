@@ -28,7 +28,6 @@ public class PageRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public static final int PAGE_TWO = 333;
     public static final int COMMENT = 555;
     private int pos = 0;
-    private List<String> s  = new ArrayList<>();
     private List<HotNewsData.DataListBean> dataListBeanList;
     private List<OtherData.ContListBean> otherContList;
     private List<OtherData.ContListBean> hotListBeanList;
@@ -44,14 +43,12 @@ public class PageRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 otherContList = new ArrayList<>();
                 for (int i = 0; i < list.size(); i++) {
                     OtherData.ContListBean bean = (OtherData.ContListBean) list.get(i);
-                    s.add(bean.getContId());
                     otherContList.add(bean);
                 }
                 break;
             case PAGE_TWO:
                 for (int i = 0; i < list.size(); i++) {
                     OtherData.ContListBean hot = (OtherData.ContListBean) list.get(i);
-                    s.add(hot.getContId());
                     hotListBeanList.add(hot);
                 }
                 break;
@@ -62,9 +59,6 @@ public class PageRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     dataListBeanList.add(data);
                 }
                 hotContList.addAll(dataListBeanList.get(pos).getContList());
-                for (int i = 0; i < hotContList.size(); i++) {
-                    s.add(hotContList.get(i).getContId());
-                }
                 break;
             case COMMENT:
                 commentDataList = new ArrayList<>();
@@ -79,11 +73,10 @@ public class PageRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     public void refreshOne(PageOneContract.callback callback,OtherData data){
         otherContList.clear();
-        s.clear();
+
         List<OtherData.ContListBean> oneList = data.getContList();
         for (int i = 0; i < oneList.size(); i++) {
             OtherData.ContListBean bean = oneList.get(i);
-            s.add(0,bean.getContId());
             otherContList.add(bean);
         }
 
@@ -94,11 +87,9 @@ public class PageRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     public void refreshTwo(PageTwoContract.callback callback , OtherData data){
         hotListBeanList.clear();
-        s.clear();
         List<OtherData.ContListBean> twoList = data.getContList();
         for (int i = 0; i < twoList.size(); i++) {
             OtherData.ContListBean bean = twoList.get(i);
-            s.add(bean.getContId());
             hotListBeanList.add(0, bean);
         }
 
@@ -109,7 +100,6 @@ public class PageRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     public void refreshThree(PageThreeContract.callback callback , HotNewsData data){
         dataListBeanList.clear();
-        s.clear();
         pos++;
         List<HotNewsData.DataListBean> threeList = data.getDataList();
         dataListBeanList.addAll(threeList);
@@ -119,9 +109,7 @@ public class PageRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
         List<HotNewsData.ContListBean> bean = new ArrayList<>();
         bean=dataListBeanList.get(pos++).getContList();
-        for (int i = 0; i < bean.size(); i++) {
-            s.add(bean.get(i).getContId());
-        }
+
         hotContList.addAll(0, bean);
         notifyItemRangeInserted(0,hotContList.size());
         notifyDataSetChanged();
@@ -132,9 +120,6 @@ public class PageRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public void loadMoreOne(PageOneContract.callback callback,OtherData data){
         List<OtherData.ContListBean> oneList = data.getContList();
         otherContList.addAll(oneList);
-        for (int i = 0; i < oneList.size(); i++) {
-            s.add(oneList.get(i).getContId());
-        }
         notifyItemRangeInserted(0,otherContList.size());
         notifyDataSetChanged();
         callback.isFinish();
@@ -142,9 +127,7 @@ public class PageRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public void loadMoreTwo(PageTwoContract.callback callback,OtherData data){
         List<OtherData.ContListBean>twoList=data.getContList();
         hotListBeanList.addAll(twoList);
-        for (int i = 0; i < twoList.size(); i++) {
-            s.add(twoList.get(i).getContId());
-        }
+
         notifyItemRangeInserted(0,hotListBeanList.size());
         notifyDataSetChanged();
         callback.isFinish();
@@ -157,9 +140,8 @@ public class PageRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             pos=5;
         }
         HotNewsData.DataListBean more = dataListBeanList.get(pos);
-        hotContList.addAll(more.getContList());
-        for (int i = 0; i < more.getContList().size(); i++) {
-            s.add(more.getContList().get(i).getContId());
+        if(more.getContList()!=null){
+            hotContList.addAll(more.getContList());
         }
         notifyItemRangeInserted(0,hotContList.size()-currentNumber);
         notifyDataSetChanged();

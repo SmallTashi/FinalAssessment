@@ -45,6 +45,7 @@ public class PageTwoModel implements PageTwoContract.getData {
 
     @Override
     public void Refresh(String s) {
+        index++;
         if(index>=3){
             callback.noMoreData();
         }else {

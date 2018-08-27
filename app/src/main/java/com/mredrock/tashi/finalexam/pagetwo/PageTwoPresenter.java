@@ -51,6 +51,7 @@ public class PageTwoPresenter extends Presenter implements PageTwoContract.callb
     public void LoadMore(OtherData data) {
      twoAdapter.loadMoreTwo(this,data);
     }
+
     public void LoadMoreTwo() {
         if(otherData!=null){
             getData.LoadMore(otherData.getNextUrl());
@@ -60,8 +61,11 @@ public class PageTwoPresenter extends Presenter implements PageTwoContract.callb
     }
     @Override
     public void Refresh(OtherData data) {
-        this.otherData = data;
-        twoAdapter.refreshTwo(this,data);
+       if(data.equals(otherData)){
+           show.addToast("没有更多数据了",false);
+       }else {
+           twoAdapter.refreshTwo(this,data);
+       }
     }
 
     public void setPageTwo(RecyclerView pageTwo, Context context) {
